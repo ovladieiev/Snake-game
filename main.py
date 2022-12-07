@@ -65,7 +65,7 @@ clock = pygame.time.Clock()
 
 # fonts
 score_font = pygame.font.SysFont('times', 25, bold=True)        # "Score" font
-game_over_font = pygame.font.SysFont('times', 80, bold=True)     # "GAME OVER" font
+game_over_font = pygame.font.SysFont('times', 80, bold=True)    # "GAME OVER" font
 main_menu_font = pygame.font.SysFont('times', 80, bold=True)    # "MAIN MENU" font
 start_font = pygame.font.SysFont('times', 30, bold=True)        # start font
 quit_font = pygame.font.SysFont('times', 30, bold=True)         # quit font
@@ -73,7 +73,7 @@ quit_font = pygame.font.SysFont('times', 30, bold=True)         # quit font
 # music initialization
 pygame.mixer.init()
 apple_sound = pygame.mixer.Sound("apple.wav")                   # apple sound
-game_over_sound = pygame.mixer.Sound("game-over.wav")            # game over sound
+game_over_sound = pygame.mixer.Sound("game-over.wav")           # game over sound
 bonus_sound = pygame.mixer.Sound("bonus.wav")                   # bonus sound
 background_music = pygame.mixer.Sound("background.wav")         # background music
 
@@ -218,7 +218,7 @@ while running:
             play_game = False                               # hiding play area window
             game_over = True                                # showing game over window
             pygame.mixer.Sound.stop(background_music)       # turning off background music
-            pygame.mixer.Sound.play(game_over_sound)         # turning on  game over sound
+            pygame.mixer.Sound.play(game_over_sound)        # turning on  game over sound
 
         # conditions of game over, if snake bumps into the wall
         for i in range(len(walls_coordinates)):
@@ -226,7 +226,7 @@ while running:
                 play_game = False                           # hiding play area window
                 game_over = True                            # showing game over window
                 pygame.mixer.Sound.stop(background_music)   # turning off background music
-                pygame.mixer.Sound.play(game_over_sound)     # turning on  game over sound
+                pygame.mixer.Sound.play(game_over_sound)    # turning on  game over sound
 
         # refreshing the screen and displaying every element which should be displayed (in this case it's snake, apple, bonus, score, walls)
         pygame.display.update()
@@ -238,8 +238,8 @@ while running:
         screen.fill('black')        # filling screen with black color
 
         # game over text
-        game_over_render = game_over_font.render('GAME OVER', True, 'red')                        # rendering GAME OVER text
-        screen.blit(game_over_render, (RES // 2 - 250, 75))                                      # assigning GAME OVER text to appropriate coordinates
+        game_over_render = game_over_font.render('GAME OVER', True, 'red')                      # rendering GAME OVER text
+        screen.blit(game_over_render, (RES // 2 - 250, 75))                                     # assigning GAME OVER text to appropriate coordinates
         # score text
         score_render = score_font.render(f'Your score: {score}', True, 'orange')                # rendering score text
         screen.blit(score_render, (RES // 2 - 70, RES - 100))                                   # assigning score text to appropriate coordinates
